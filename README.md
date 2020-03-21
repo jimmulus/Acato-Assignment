@@ -10,10 +10,20 @@ npm install</p>
 <p><strong>Run command in terminal to install packages from composer.json</strong><br>
 composer install</p>
 
+<p><strong>Copy the .env.example file and rename it to .env</strong></p>
+
 <p><strong>Run command in terminal to generate an APP_KEY</strong><br>
 php artisan key:generate</p>
+
 <p><strong>Run command in terminal to add JWT Secret in .env file</strong><br>
 php artisan jwt:secret</p>
+
+<p><strong>setup url</strong><br>
+APP_URL</p>
+
+<p><strong>Add app url to.env file for application use</strong><br>
+MIX_APP_URL="${APP_URL}"</p>
+
 <p><strong>Setup  database connection in your .env file</strong><br>
 DB_DATABASE<br>
 DB_USERNAME<br>

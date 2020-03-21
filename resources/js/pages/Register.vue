@@ -91,6 +91,8 @@ export default {
         },
         // populate errors for display error messages
         error: function(res) {
+          //close loader
+          this.overlayClose();
           app.errors = res.response.data.errors || {};
         }
       });
