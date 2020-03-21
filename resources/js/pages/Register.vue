@@ -9,9 +9,9 @@
           <v-text-field label="E-mail" v-model="email" type="email" required></v-text-field>
           <span class="red--text" v-if="errors.email">{{ errors.email[0] }}</span>
           <v-text-field label="Wachtwoord" v-model="password" type="password" required></v-text-field>
-          <span class="red--text" v-if="errors.email">{{ errors.password[0] }}</span>
+          <span class="red--text" v-if="errors.password">{{ errors.password[0] }}</span>
           <v-text-field
-            label="Wachtwoord herhalen"
+            label="Wachtwoord bevestiging"
             v-model="password_confirmation"
             type="password"
             required
@@ -39,7 +39,18 @@ export default {
     };
   },
   methods: {
+    // open loader
+    overlayOpen() {
+      EventBus.$emit("overlay-open");
+    },
+    //close loader
+    overlayClose() {
+      EventBus.$emit("overlay-close");
+    },
+    // register new user
     register() {
+      //open loader
+      this.overlayOpen();
       var app = this;
       // post new user data
       this.$auth.register({
@@ -51,10 +62,31 @@ export default {
         },
         // on succes redirect to login page
         success: function() {
-          app.success = true;
-          this.$router.push({
-            name: "login",
-            params: { successRegistrationRedirect: true }
+          //var redirect = this.$auth.redirect();
+          var app = this;
+          //app.success = true;
+          this.$auth.login({
+            params: {
+              email: app.email,
+              password: app.password
+            },
+            // on succes redirect to dashboard
+            success: function() {
+              //close loader
+              this.overlayClose();
+              this.$router.push({ name: "dashboard" });
+            },
+            // populate errors and error for display error messages
+            error: function(res) {
+              //close loader
+              this.overlayClose();
+              this.$router.push({
+                name: "login",
+                params: { successRegistrationRedirect: true }
+              });
+            },
+            // get user data
+            fetchUser: true
           });
         },
         // populate errors for display error messages
