@@ -30,7 +30,7 @@ DB_USERNAME<br>
 DB_PASSWORD
 
 <p><strong>Setup mail in .env file</strong><br>
-MAIL_DRIVER<br>
+MAIL_MAILER=smtp<br>
 MAIL_HOST<br>
 MAIL_PORT<br>
 MAIL_USERNAM<br>
