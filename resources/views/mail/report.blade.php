@@ -8,7 +8,7 @@ Hierbij dan eindelijk je langverwachte rapport!
 
 <strong>Trendklasse 1990 tot heden</strong>: {{$data['item']['Trendklasse1990TotHeden_1']}}
 
-<strong>Trendklasse laatste 10 jaar</strong>: {{$data['item']['TrendklasseLaatste10Jaar_2']}}
+<strong>Trendklasse laatste 10 jaar</strong>: {{$data['item']['TrendklasseLaatste12Jaar_2']}}
 @endcomponent
 
 Zelf rapporten sturen? Klik op onderstaande knop om naar de site te gaan!

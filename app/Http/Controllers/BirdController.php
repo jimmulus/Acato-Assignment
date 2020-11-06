@@ -37,13 +37,14 @@ class BirdController extends Controller
 
     // Loop through $mainData to set
     foreach ($mainData as $value) {
+
       // search array for bird object to get bird name
       $broedvogels = $this->data->searchArray($birdData, $value->Broedvogels);
       if ($value->ID > 0) {
         $data['value'][] = [
           'ID' => $value->ID,
           'Trendklasse1990TotHeden_1' => $value->Trendklasse1990TotHeden_1,
-          'TrendklasseLaatste10Jaar_2' => $value->TrendklasseLaatste10Jaar_2,
+          'TrendklasseLaatste12Jaar_2' => $value->TrendklasseLaatste12Jaar_2,
           'Broedvogels' => $broedvogels->Title
         ];
       }
@@ -76,7 +77,7 @@ class BirdController extends Controller
     $data['item'] = $request->item;
 
     //Send email
-    Mail::to($mail)->send(new MailReport($data));
+    Mail::to('j-dj@live.nl')->send(new MailReport($data));
 
     // Return success
     return response()->json(['status' => 'success'], 200);

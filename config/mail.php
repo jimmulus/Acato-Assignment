@@ -1,7 +1,7 @@
 <?php
 
 return [
-  "driver" => env('MAIL_DRIVER'),
+  "driver" => env('MAIL_MAILER'),
   "host" => env('MAIL_HOST'),
   "port" => env('MAIL_PORT'),
   "from" => array(
