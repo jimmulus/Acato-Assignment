@@ -4,11 +4,11 @@
 
 <p><strong>Open folder in your terminal</strong></p>
 
-<p><strong>Run command in terminal to install packages from package.json</strong><br>
-npm install</p>
-
 <p><strong>Run command in terminal to install packages from composer.json</strong><br>
 composer install</p>
+
+<p><strong>Run command in terminal to install packages from package.json</strong><br>
+npm install</p>
 
 <p><strong>Copy the .env.example file and rename it to .env</strong></p>
 
@@ -20,9 +20,6 @@ php artisan jwt:secret</p>
 
 <p><strong>setup url</strong><br>
 APP_URL</p>
-
-<p><strong>Add app url to.env file for application use</strong><br>
-MIX_APP_URL="${APP_URL}"</p>
 
 <p><strong>Setup  database connection in your .env file</strong><br>
 DB_DATABASE<br>
