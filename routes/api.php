@@ -18,33 +18,31 @@ use Illuminate\Support\Facades\Route;
 
 // Version 1 API
 Route::prefix('v1')->group(function () {
-
-  // all birds routes
-  Route::prefix('vogels')->group(function () {
-    Route::get('info', 'birdController@infoVue');
-    Route::get('data', 'birdController@dataVue');
-    Route::post('report', 'birdController@mailBirdRreport');
-  });
-
-  // Authentication
-  Route::prefix('auth')->group(function () {
-    Route::post('register', 'AuthController@register');
-    Route::post('login', 'AuthController@login');
-    Route::get('refresh', 'AuthController@refresh');
-
-    // Protected
-    Route::group(['middleware' => 'auth:api'], function () {
-
-      // User level
-      Route::get('user', 'AuthController@user');
-      Route::get('admin', 'AuthController@admin');
-
-      // Users
-      Route::get('users', 'UserController@index')->middleware('isAdmin');
-      Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrSelf');
-
-      // Logout
-      Route::post('logout', 'AuthController@logout');
+    // all birds routes
+    Route::prefix('vogels')->group(function () {
+        Route::get('info', 'BirdController@infoVue');
+        Route::get('data', 'BirdController@dataVue');
+        Route::post('report', 'BirdController@mailBirdRreport');
     });
-  });
+
+    // Authentication
+    Route::prefix('auth')->group(function () {
+        Route::post('register', 'AuthController@register');
+        Route::post('login', 'AuthController@login');
+        Route::get('refresh', 'AuthController@refresh');
+
+        // Protected
+        Route::group(['middleware' => 'auth:api'], function () {
+            // User level
+            Route::get('user', 'AuthController@user');
+            Route::get('admin', 'AuthController@admin');
+
+            // Users
+            Route::get('users', 'UserController@index')->middleware('isAdmin');
+            Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrSelf');
+
+            // Logout
+            Route::post('logout', 'AuthController@logout');
+        });
+    });
 });
