@@ -3,7 +3,7 @@
     <v-img
       class="white--text align-end"
       height="200px"
-      src="https://www.sovon.nl/sites/default/files/styles/projectfoto/public/pictures/741x294/projectpagina%20nestkaarten%20741x294%20pimpelmees%206980-17.jpg?itok=gcbRWIXP"
+      src="https://www.greatbirdpics.com/wp-content/uploads/2020/05/Tennessee-Warbler.jpg"
     >
       <v-card-title dark>{{ info.ShortTitle }}</v-card-title>
     </v-img>
