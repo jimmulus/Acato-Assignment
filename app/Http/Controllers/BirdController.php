@@ -77,7 +77,7 @@ class BirdController extends Controller
     $data['item'] = $request->item;
 
     //Send email
-    Mail::to('j-dj@live.nl')->send(new MailReport($data));
+    Mail::to($mail)->send(new MailReport($data));
 
     // Return success
     return response()->json(['status' => 'success'], 200);
